@@ -1,0 +1,13 @@
+{
+  "name": "gonewild",
+  "version": "0.0.0",
+  "homepage": "https://github.com/mvasilkov/gonewild",
+  "authors": [
+    "Mark Vasilkov <mvasilkov@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "requirejs": "~2.1.14"
+  }
+}
