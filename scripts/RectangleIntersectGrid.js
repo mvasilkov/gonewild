@@ -1,4 +1,6 @@
 define('RectangleIntersectGrid', function () {
+    'use strict'
+
     function RectangleIntersectGrid() {
         this.gridToRect = new Map
         this.rectToGrid = new Map
@@ -49,12 +51,13 @@ define('RectangleIntersectGrid', function () {
     }
 
     RectangleIntersectGrid.prototype.getIntersections = function getIntersections(rect) {
+        function ret(r) { if (r != rect) retval.add(r) }
         var x, y, grid, rset, retval = new Set
         for (x = 0; x < rect.width; ++x)
             for (y = 0; y < rect.height; ++y) {
                 grid = [x + rect.x, y + rect.y].toString()
                 if ((rset = this.gridToRect.get(grid)))
-                    rset.forEach(function (r) { if (r != rect) retval.add(r) })
+                    rset.forEach(ret)
             }
         return retval
     }

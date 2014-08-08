@@ -4,6 +4,16 @@
         <meta charset="UTF-8">
         <title>gonewild</title>
         <link rel="stylesheet" href="./pub/vendor/mocha.css">
+        <style>
+            #mocha .test.pass::before {
+                font-family: 'Apple Color Emoji';
+                content: '🔰';
+            }
+            #mocha .test.fail::before {
+                font-family: 'Apple Color Emoji';
+                content: '🚨';
+            }
+        </style>
     </head>
     <body>
         <div id="mocha"></div>

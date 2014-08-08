@@ -1,4 +1,23 @@
 {
     "asi": true,
+    "browser": true,
+    "camelcase": true,
+    "freeze": true,
+    "globals": {
+        "beforeEach": false,
+        "define": false,
+        "describe": false,
+        "it": false,
+        "mocha": false,
+        "require": false
+    },
+    "indent": 4,
+    "newcap": true,
+    "nonew": true,
+    "quotmark": "single",
+    "strict": true,
+    "undef": true,
+    "unused": true,
+    "-W033": true,
     "-W058": true
 }
