@@ -5,7 +5,6 @@ function (chai, Rectangle, RectangleIntersectGrid) {
 
     describe('RectangleIntersectGrid', function () {
         var rig
-
         beforeEach(function () { rig = new RectangleIntersectGrid })
 
         it('add', function () {

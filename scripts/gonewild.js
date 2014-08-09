@@ -1,6 +1,6 @@
 mocha.setup('bdd')
 
-require(['test/RectangleIntersectGrid'], function () {
+require(['test/RectangleIntersectGrid', 'test/ParkMiller'], function () {
     'use strict'
 
     mocha.checkLeaks()
