@@ -6,17 +6,28 @@ define(['vendor/chai', 'ParkMiller'], function (chai, ParkMiller) {
         var rng
         beforeEach(function () { rng = new ParkMiller.constructor })
 
+        function uniform() {
+            var f = rng.uniform()
+            assert.closeTo(f, 0.5, 0.5)
+            return f
+        }
+
+        function sample(fn) {
+            var xs = new Set, i
+            for (i = 0; i < 100; ++i) xs.add(fn())
+            assert.strictEqual(xs.size, 100)
+        }
+
         it('uniform', function () {
             assert.strictEqual(rng.s, 1)
-            assert.closeTo(rng.uniform(), 0.5, 0.5)
+            rng.uniform()
             assert.strictEqual(rng.s, 16807)
 
-            var n, sample = new Set, i
-            for (i = 0; i < 20; ++i) {
-                sample.add(n = rng.uniform())
-                assert.closeTo(n, 0.5, 0.5)
-            }
-            assert.strictEqual(sample.size, 20)
+            sample(uniform)
+        })
+
+        it('standardNormal', function () {
+            sample(rng.standardNormal.bind(rng))
         })
     })
 })
