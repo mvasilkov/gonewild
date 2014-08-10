@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>gonewild rng</title>
+        <style>
+            .col {
+                background: #2980b9;
+                display: inline-block;
+                width: 3px;
+            }
+            #col0 {
+                background: #3498db;
+            }
+            .nope {
+                background: #e74c3c;
+                height: 1px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container"></div>
+        <p>min=<span id="min"></span><br>max=<span id="max"></span></p>
+        <script src="./scripts/vendor/es6-shim.js"></script>
+        <script src="./scripts/vendor/require.js" data-main="./scripts/rng.js"></script>
+    </body>
+</html>

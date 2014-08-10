@@ -7,9 +7,10 @@ define('ParkMiller', function () {
     }
 
     ParkMiller.prototype.seed = function seed(a) {
-        if (a > 1)
-            return (this.s = a % 2147483647), this
-        return (this.s = 1), this
+        if (a > 1) (this.s = a % 2147483647)
+        else (this.s = 1)
+        this.cache = NaN
+        return this
     }
 
     ParkMiller.prototype.iuniform = function iuniform() {
@@ -28,14 +29,18 @@ define('ParkMiller', function () {
             return fac
         }
         do {
-            u = this.iuniform() / 1073740000 - 1
-            v = this.iuniform() / 1073740000 - 1
+            u = this.iuniform() / 1073741823.5 - 1
+            v = this.iuniform() / 1073741823.5 - 1
             fac = u * u + v * v
         }
         while (fac >= 1 || !fac)
         fac = Math.sqrt(-2 * Math.log(fac) / fac)
         this.cache = fac * u
         return fac * v
+    }
+
+    ParkMiller.prototype.bernoulli = function bernoulli(a) {
+        return this.iuniform() < 2147483647 * a
     }
 
     return (new ParkMiller).seed(Date.now())
